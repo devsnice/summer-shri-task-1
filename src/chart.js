@@ -8,10 +8,12 @@ function getColor(isActive, alpha = 1) {
 
 function getLabel(el, i, data) {
 	const x = new Date();
+
 	x.setHours(x.getHours() - data.length + i);
 	x.setMinutes(0);
 	x.setSeconds(0);
 	x.setMilliseconds(0);
+
 	return x.toString();
 }
 
@@ -40,7 +42,7 @@ export function createChart(container, data, isActive) {
 			},
 			scales: {
 				xAxes: [{ ticks: { display: false } }],
-				yAxes: [{ ticks: { beginAtZero: true, max: 0 } }]
+				yAxes: [{ ticks: { beginAtZero: true } }]
 			}
 		}
 	});
