@@ -14,17 +14,20 @@ export function createFilterControl(ymaps) {
 		data: { content: "Filter by state", title: "Filter by state" },
 		items: items,
 		state: {
-			filters: items.reduce(function(filters, item) {
+			filters: items.reduce((filters, item) => {
 				filters[item.data.get("value")] = item.isSelected();
+
 				return filters;
 			}, {})
 		}
 	});
 
 	listBoxControl.events.add(["select", "deselect"], (event) => {
-		var item = event.get("target");
-		var filters = ymaps.util.extend({}, listBoxControl.state.get("filters"));
+		const item = event.get("target");
+		const filters = ymaps.util.extend({}, listBoxControl.state.get("filters"));
+
 		filters[item.data.get("value")] = item.isSelected();
+
 		listBoxControl.state.set("filters", filters);
 	});
 
