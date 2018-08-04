@@ -6,7 +6,7 @@ export function initMap(ymaps, containerId) {
 	const myMap = new ymaps.Map(containerId, {
 		center: [55.76, 37.64],
 		controls: [],
-		zoom: 10
+		zoom: 1
 	});
 
 	const objectManager = new ymaps.ObjectManager({
@@ -19,9 +19,13 @@ export function initMap(ymaps, containerId) {
 		geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
 	});
 
+	myMap.geoObjects.add(objectManager);
+
 	objectManager.clusters.options.set("preset", "islands#greenClusterIcons");
 
 	loadList().then((data) => {
+		console.log(objectManager);
+
 		objectManager.add(data);
 	});
 
@@ -45,6 +49,7 @@ export function initMap(ymaps, containerId) {
 	myMap.controls.add(listBoxControl);
 
 	var filterMonitor = new ymaps.Monitor(listBoxControl.state);
+
 	filterMonitor.add("filters", (filters) => {
 		objectManager.setFilter(
 			(obj) => filters[obj.isActive ? "active" : "defective"]
