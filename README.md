@@ -30,7 +30,7 @@
 
 6. Починил pieCharts [[commit]](https://github.com/devsnice/summer-shri-task-1/commit/faae2b021ed2a03e5f9b53480699730493e50ba9)
 
-7.Проблема с графиком, неправильный набор параметров [[commit]](https://github.com/devsnice/summer-shri-task-1/commit/f73040e8261cde0c5476f7ce5f035d1a9f96536c)
+7. Проблема с графиком, неправильный набор параметров [[commit]](https://github.com/devsnice/summer-shri-task-1/commit/f73040e8261cde0c5476f7ce5f035d1a9f96536c)
 
 
 ## Запуск
